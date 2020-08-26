@@ -15,15 +15,16 @@
 #import "LFStreamRTMPSocket.h"
 #import "LFLiveStreamInfo.h"
 #import "LFGPUImageBeautyFilter.h"
+#import "LFGPUImageSketchFilter.h"
 #import "LFH264VideoEncoder.h"
 
 
 @interface LFLiveSession ()<LFAudioCaptureDelegate, LFVideoCaptureDelegate, LFAudioEncodingDelegate, LFVideoEncodingDelegate, LFStreamSocketDelegate>
 
-/// 音频配置
-@property (nonatomic, strong) LFLiveAudioConfiguration *audioConfiguration;
-/// 视频配置
-@property (nonatomic, strong) LFLiveVideoConfiguration *videoConfiguration;
+///// 音频配置
+//@property (nonatomic, strong) LFLiveAudioConfiguration *audioConfiguration;
+///// 视频配置
+//@property (nonatomic, strong) LFLiveVideoConfiguration *videoConfiguration;
 /// 声音采集
 @property (nonatomic, strong) LFAudioCapture *audioCaptureSource;
 /// 视频采集
@@ -248,7 +249,22 @@
 - (void)setCaptureDevicePosition:(AVCaptureDevicePosition)captureDevicePosition {
     [self willChangeValueForKey:@"captureDevicePosition"];
     [self.videoCaptureSource setCaptureDevicePosition:captureDevicePosition];
+    
     [self didChangeValueForKey:@"captureDevicePosition"];
+}
+
+- (void)setOutputImageOrientation:(UIInterfaceOrientation)outputImageOrientation {
+    [self willChangeValueForKey:@"outputImageOrientation"];
+    [self.videoCaptureSource setOutputImageOrientation:outputImageOrientation];
+    [self.videoConfiguration changeOutputImageOrientation:outputImageOrientation];
+    [self.videoCaptureSource reloadFilter];
+    [self didChangeValueForKey:@"outputImageOrientation"];
+}
+
+- (void)reloadFilter:(NSInteger)type {
+    [self willChangeValueForKey:@"applyFilter"];
+    [self.videoCaptureSource applyFilter:type];
+    [self didChangeValueForKey:@"applyFilter"];
 }
 
 - (AVCaptureDevicePosition)captureDevicePosition {

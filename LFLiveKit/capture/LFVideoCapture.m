@@ -8,6 +8,7 @@
 
 #import "LFVideoCapture.h"
 #import "LFGPUImageBeautyFilter.h"
+#import "GPUImageStretchDistortionFilter.h"
 #import "LFGPUImageEmptyFilter.h"
 
 #if __has_include(<GPUImage/GPUImage.h>)
@@ -18,10 +19,11 @@
 #import "GPUImage.h"
 #endif
 
+
 @interface LFVideoCapture ()
 
 @property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
-@property (nonatomic, strong) LFGPUImageBeautyFilter *beautyFilter;
+@property (nonatomic, strong) GPUImageStretchDistortionFilter *beautyFilter;
 @property (nonatomic, strong) GPUImageOutput<GPUImageInput> *filter;
 @property (nonatomic, strong) GPUImageCropFilter *cropfilter;
 @property (nonatomic, strong) GPUImageOutput<GPUImageInput> *output;
@@ -33,6 +35,7 @@
 @property (nonatomic, strong) UIView *waterMarkContentView;
 
 @property (nonatomic, strong) GPUImageMovieWriter *movieWriter;
+
 
 
 @property (nonatomic, strong) GPUImageOutput<GPUImageInput> *secondFilter;
@@ -51,7 +54,7 @@
 - (instancetype)initWithVideoConfiguration:(LFLiveVideoConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = configuration;
-
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterBackground:) name:UIApplicationWillResignActiveNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterForeground:) name:UIApplicationDidBecomeActiveNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarChanged:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
@@ -135,6 +138,10 @@
     [self reloadMirror];
 }
 
+- (void)setOutputImageOrientation:(UIInterfaceOrientation)outputImageOrientation {
+    [self.videoCamera setOutputImageOrientation:outputImageOrientation];
+}
+
 - (AVCaptureDevicePosition)captureDevicePosition {
     return [self.videoCamera cameraPosition];
 }
@@ -189,7 +196,7 @@
 - (void)setBeautyLevel:(CGFloat)beautyLevel {
     _beautyLevel = beautyLevel;
     if (self.beautyFilter) {
-        [self.beautyFilter setBeautyLevel:_beautyLevel];
+        //        [self.beautyFilter setBeautyLevel:_beautyLevel];
     }
 }
 
@@ -200,7 +207,7 @@
 - (void)setBrightLevel:(CGFloat)brightLevel {
     _brightLevel = brightLevel;
     if (self.beautyFilter) {
-        [self.beautyFilter setBrightLevel:brightLevel];
+        //        [self.beautyFilter setBrightLevel:brightLevel];
     }
 }
 
@@ -314,17 +321,17 @@
     [self.videoCamera removeAllTargets];
     [self.output removeAllTargets];
     [self.cropfilter removeAllTargets];
-
+    
     [self.secondFilter removeAllTargets];
     [self.output removeAllTargets];
     
-
+    
     self.output = [[LFGPUImageEmptyFilter alloc] init];
-    self.filter = [[LFGPUImageBeautyFilter alloc] init];
+    self.filter = [[GPUImageStretchDistortionFilter alloc] init];
     self.secondOutput = [[LFGPUImageEmptyFilter alloc] init];
     self.secondFilter = [[LFGPUImageEmptyFilter alloc] init];
-    self.beautyFilter = (LFGPUImageBeautyFilter*)self.filter;
-
+    //    self.beautyFilter = (GPUImageStretchDistortionFilter*)self.filter;
+    
     ///< 调节镜像
     [self reloadMirror];
     
@@ -378,6 +385,98 @@
     
 }
 
+- (void)applyFilter:(NSInteger)type {
+    [self.filter removeAllTargets];
+    [self.blendFilter removeAllTargets];
+    [self.uiElementInput removeAllTargets];
+    [self.videoCamera removeAllTargets];
+    [self.output removeAllTargets];
+    [self.cropfilter removeAllTargets];
+    
+    [self.secondFilter removeAllTargets];
+    [self.output removeAllTargets];
+    
+    
+    self.output = [[LFGPUImageEmptyFilter alloc] init];
+    switch(type) {
+        case 1:
+            self.filter = [[GPUImageBulgeDistortionFilter alloc] init];
+            break;
+        case 2:
+            self.filter = [[GPUImageBoxBlurFilter alloc] init];
+            break;
+        case 3:
+            self.filter = [[GPUImageBulgeDistortionFilter alloc] init];
+            break;
+        case 4:
+            self.filter = [[GPUImageBulgeDistortionFilter alloc] init];
+            break;
+        case 5:
+            self.filter = [[GPUImageZoomBlurFilter alloc] init];
+            break;
+        case 6:
+            self.filter = [[GPUImageGaussianBlurFilter alloc] init];
+            break;
+        default:
+            NSLog(@"Default");
+            break;
+    }
+    self.secondOutput = [[LFGPUImageEmptyFilter alloc] init];
+    self.secondFilter = [[LFGPUImageEmptyFilter alloc] init];
+    //    self.beautyFilter = (GPUImageStretchDistortionFilter*)self.filter;
+    
+    ///< 调节镜像
+    [self reloadMirror];
+    
+    //< 480*640 比例为4:3  强制转换为16:9
+    if([self.configuration.avSessionPreset isEqualToString:AVCaptureSessionPreset640x480]){
+        CGRect cropRect = self.configuration.landscape ? CGRectMake(0, 0.125, 1, 0.75) : CGRectMake(0.125, 0, 0.75, 1);
+        self.cropfilter = [[GPUImageCropFilter alloc] initWithCropRegion:cropRect];
+        [self.videoCamera addTarget:self.cropfilter];
+        [self.cropfilter addTarget:self.filter];
+        [self.cropfilter addTarget:self.secondFilter];
+    }else{
+        [self.videoCamera addTarget:self.filter];
+        [self.videoCamera addTarget:self.secondFilter];
+    }
+    
+    //< 添加水印
+    if(self.warterMarkView){
+        [self.filter addTarget:self.blendFilter];
+        [self.uiElementInput addTarget:self.blendFilter];
+        [self.blendFilter addTarget:self.gpuImageView];
+        if(self.saveLocalVideo) [self.blendFilter addTarget:self.movieWriter];
+        [self.filter addTarget:self.output];
+        [self.uiElementInput update];
+    }else{
+        [self.filter addTarget:self.output];
+        [self.output addTarget:self.gpuImageView];
+        [self.secondFilter addTarget:self.secondOutput];
+        [self.secondOutput addTarget:self.secondGpuImageView];
+        if(self.saveLocalVideo) [self.output addTarget:self.movieWriter];
+    }
+    
+    [self.filter forceProcessingAtSize:self.configuration.videoSize];
+    [self.output forceProcessingAtSize:self.configuration.videoSize];
+    [self.secondFilter forceProcessingAtSize:self.configuration.videoSize];
+    [self.secondOutput forceProcessingAtSize:self.configuration.videoSize];
+    [self.blendFilter forceProcessingAtSize:self.configuration.videoSize];
+    [self.uiElementInput forceProcessingAtSize:self.configuration.videoSize];
+    
+    
+    //< 输出数据
+    __weak typeof(self) _self = self;
+    if (self.beautyFace) {
+        [self.output setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
+            [_self processVideo:output];
+        }];
+    } else {
+        [self.secondOutput setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
+            [_self processVideo:output];
+        }];
+    }
+}
+
 - (void)reloadMirror{
     if(self.mirror && self.captureDevicePosition == AVCaptureDevicePositionFront){
         self.videoCamera.horizontallyMirrorFrontFacingCamera = YES;
@@ -404,7 +503,7 @@
 - (void)statusBarChanged:(NSNotification *)notification {
     NSLog(@"UIApplicationWillChangeStatusBarOrientationNotification. UserInfo: %@", notification.userInfo);
     UIInterfaceOrientation statusBar = [[UIApplication sharedApplication] statusBarOrientation];
-
+    
     if(self.configuration.autorotate){
         if (self.configuration.landscape) {
             if (statusBar == UIInterfaceOrientationLandscapeLeft) {

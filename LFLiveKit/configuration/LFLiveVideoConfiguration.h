@@ -99,4 +99,10 @@ typedef NS_ENUM (NSUInteger, LFLiveVideoQuality){
 ///< 是否是横屏
 @property (nonatomic, assign, readonly) BOOL landscape;
 
+/// 视频的最小码率，单位是 bps
+@property (nonatomic, assign) LFLiveVideoQuality videoQuality;
+
+/** support outer input pcm audio(set LFLiveCaptureTypeMask) .*/
+- (void)changeOutputImageOrientation:(UIInterfaceOrientation)orientation;
+
 @end

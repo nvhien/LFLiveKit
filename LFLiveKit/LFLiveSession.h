@@ -62,6 +62,11 @@ typedef NS_ENUM(NSInteger,LFLiveCaptureTypeMask) {
 /** The delegate of the capture. captureData callback */
 @property (nullable, nonatomic, weak) id<LFLiveSessionDelegate> delegate;
 
+/// 音频配置
+@property (nonatomic, strong, null_resettable) LFLiveAudioConfiguration *audioConfiguration;
+/// 视频配置
+@property (nonatomic, strong, null_resettable) LFLiveVideoConfiguration *videoConfiguration;
+
 /** The running control start capture or stop capture*/
 @property (nonatomic, assign) BOOL running;
 
@@ -128,6 +133,9 @@ typedef NS_ENUM(NSInteger,LFLiveCaptureTypeMask) {
 /* The saveLocalVideoPath is save the local video  path */
 @property (nonatomic, strong, nullable) NSURL *saveLocalVideoPath;
 
+/** The outputImageOrientation control interfaceorientaton ,default portrait*/
+@property (nonatomic, assign) UIInterfaceOrientation outputImageOrientation;
+
 #pragma mark - Initializer
 ///=============================================================================
 /// @name Initializer
@@ -156,8 +164,9 @@ typedef NS_ENUM(NSInteger,LFLiveCaptureTypeMask) {
 /** support outer input yuv or rgb video(set LFLiveCaptureTypeMask) .*/
 - (void)pushVideo:(nullable CVPixelBufferRef)pixelBuffer;
 
-/** support outer input pcm audio(set LFLiveCaptureTypeMask) .*/
 - (void)pushAudio:(nullable NSData*)audioData;
+
+- (void)reloadFilter:(NSInteger)type;
 
 @end
 

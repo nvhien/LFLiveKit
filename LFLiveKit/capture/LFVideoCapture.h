@@ -69,6 +69,9 @@
 /* The saveLocalVideoPath is save the local video  path */
 @property (nonatomic, strong, nullable) NSURL *saveLocalVideoPath;
 
+/** The outputImageOrientation control interfaceorientaton ,default portrait*/
+@property (nonatomic, assign) UIInterfaceOrientation outputImageOrientation;
+
 #pragma mark - Initializer
 ///=============================================================================
 /// @name Initializer
@@ -81,5 +84,11 @@
    capture unstable.
  */
 - (nullable instancetype)initWithVideoConfiguration:(nullable LFLiveVideoConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+
+/** The stop stream .*/
+- (void)reloadFilter;
+
+/** The apply filter stream .*/
+- (void)applyFilter:(NSInteger)type;
 
 @end

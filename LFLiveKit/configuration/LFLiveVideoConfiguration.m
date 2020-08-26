@@ -26,6 +26,7 @@
 
 + (instancetype)defaultConfigurationForQuality:(LFLiveVideoQuality)videoQuality outputImageOrientation:(UIInterfaceOrientation)outputImageOrientation {
     LFLiveVideoConfiguration *configuration = [LFLiveVideoConfiguration new];
+    configuration.videoQuality = videoQuality;
     switch (videoQuality) {
     case LFLiveVideoQuality_Low1:{
         configuration.sessionPreset = LFCaptureSessionPreset360x640;
@@ -175,6 +176,57 @@
         return self.aspectRatioVideoSize;
     }
     return _videoSize;
+}
+
+- (void)changeOutputImageOrientation:(UIInterfaceOrientation)orientation {
+    CGSize videoSize;
+    switch (_videoQuality) {
+    case LFLiveVideoQuality_Low1:{
+       videoSize = CGSizeMake(360, 640);
+    }
+        break;
+    case LFLiveVideoQuality_Low2:{
+        videoSize = CGSizeMake(360, 640);
+    }
+        break;
+    case LFLiveVideoQuality_Low3: {
+        videoSize = CGSizeMake(360, 640);
+    }
+        break;
+    case LFLiveVideoQuality_Medium1:{
+        videoSize = CGSizeMake(540, 960);
+    }
+        break;
+    case LFLiveVideoQuality_Medium2:{
+        videoSize = CGSizeMake(540, 960);
+    }
+        break;
+    case LFLiveVideoQuality_Medium3:{
+        videoSize = CGSizeMake(540, 960);
+    }
+        break;
+    case LFLiveVideoQuality_High1:{
+        videoSize = CGSizeMake(720, 1280);
+    }
+        break;
+    case LFLiveVideoQuality_High2:{
+        videoSize = CGSizeMake(720, 1280);
+    }
+        break;
+    case LFLiveVideoQuality_High3:{
+        videoSize = CGSizeMake(720, 1280);
+    }
+        break;
+    default:
+        break;
+    }
+    CGSize size = videoSize;
+    if(orientation == UIInterfaceOrientationLandscapeLeft) {
+        _videoSize = CGSizeMake(size.height, size.width);
+    } else {
+        _videoSize = CGSizeMake(size.width, size.height);
+    }
+    _outputImageOrientation = orientation;
 }
 
 - (void)setVideoMaxBitRate:(NSUInteger)videoMaxBitRate {
