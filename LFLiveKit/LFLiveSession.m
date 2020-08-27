@@ -15,7 +15,6 @@
 #import "LFStreamRTMPSocket.h"
 #import "LFLiveStreamInfo.h"
 #import "LFGPUImageBeautyFilter.h"
-#import "LFGPUImageSketchFilter.h"
 #import "LFH264VideoEncoder.h"
 
 
