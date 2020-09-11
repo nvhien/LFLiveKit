@@ -8,6 +8,7 @@
 
 #import "LFVideoCapture.h"
 #import "LFGPUImageBeautyFilter.h"
+#import "GPUImageSunriseFilter.h"
 #import "GPUImageStretchDistortionFilter.h"
 #import "LFGPUImageEmptyFilter.h"
 
@@ -406,7 +407,7 @@
             self.filter = [[GPUImageBoxBlurFilter alloc] init];
             break;
         case 3:
-            self.filter = [[GPUImageBulgeDistortionFilter alloc] init];
+            self.filter = [[LFGPUImageBeautyFilter alloc] init];
             break;
         case 4:
             self.filter = [[GPUImageBulgeDistortionFilter alloc] init];
@@ -417,8 +418,12 @@
         case 6:
             self.filter = [[GPUImageGaussianBlurFilter alloc] init];
             break;
+        case 7:
+            self.filter = [[GPUImageSunriseFilter alloc] init];
+            break;
         default:
             NSLog(@"Default");
+            self.filter = [[LFGPUImageEmptyFilter alloc] init];
             break;
     }
     self.secondOutput = [[LFGPUImageEmptyFilter alloc] init];

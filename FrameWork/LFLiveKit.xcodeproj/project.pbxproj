@@ -663,6 +663,8 @@
 		84D8B5E81D768B6E00752B56 /* LFStreamSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D8B5B81D768B6E00752B56 /* LFStreamSocket.h */; };
 		84D8B5E91D768B6E00752B56 /* NSMutableArray+LFAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D8B5B91D768B6E00752B56 /* NSMutableArray+LFAdd.h */; };
 		84D8B5EA1D768B6E00752B56 /* NSMutableArray+LFAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B5BA1D768B6E00752B56 /* NSMutableArray+LFAdd.m */; };
+		A481F97B250A4295007065A4 /* GPUImageSunriseFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = A481F97A250A4295007065A4 /* GPUImageSunriseFilter.h */; };
+		A481F97D250A42B9007065A4 /* GPUImageSunriseFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A481F97C250A42B9007065A4 /* GPUImageSunriseFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1097,6 +1099,8 @@
 		84D8B5B81D768B6E00752B56 /* LFStreamSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStreamSocket.h; sourceTree = "<group>"; };
 		84D8B5B91D768B6E00752B56 /* NSMutableArray+LFAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+LFAdd.h"; sourceTree = "<group>"; };
 		84D8B5BA1D768B6E00752B56 /* NSMutableArray+LFAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+LFAdd.m"; sourceTree = "<group>"; };
+		A481F97A250A4295007065A4 /* GPUImageSunriseFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageSunriseFilter.h; sourceTree = "<group>"; };
+		A481F97C250A42B9007065A4 /* GPUImageSunriseFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageSunriseFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1632,10 +1636,12 @@
 		84D8B5A01D768B6E00752B56 /* filter */ = {
 			isa = PBXGroup;
 			children = (
+				A481F97C250A42B9007065A4 /* GPUImageSunriseFilter.m */,
 				84D8B5A11D768B6E00752B56 /* LFGPUImageBeautyFilter.h */,
 				84D8B5A21D768B6E00752B56 /* LFGPUImageBeautyFilter.m */,
 				84D8B5A31D768B6E00752B56 /* LFGPUImageEmptyFilter.h */,
 				84D8B5A41D768B6E00752B56 /* LFGPUImageEmptyFilter.m */,
+				A481F97A250A4295007065A4 /* GPUImageSunriseFilter.h */,
 			);
 			path = filter;
 			sourceTree = "<group>";
@@ -1829,6 +1835,7 @@
 				84358FFF1DD1FEB600811FC7 /* GPUImageAlphaBlendFilter.h in Headers */,
 				8435913B1DD1FEB600811FC7 /* GPUImageWeakPixelInclusionFilter.h in Headers */,
 				843590451DD1FEB600811FC7 /* GPUImageEmbossFilter.h in Headers */,
+				A481F97B250A4295007065A4 /* GPUImageSunriseFilter.h in Headers */,
 				843591461DD1FEB600811FC7 /* GPUImageMovieWriter.h in Headers */,
 				8435909F1DD1FEB600811FC7 /* GPUImageLuminanceRangeFilter.h in Headers */,
 				8435902D1DD1FEB600811FC7 /* GPUImageColourFASTSamplingOperation.h in Headers */,
@@ -1998,6 +2005,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 84D8B3861D7574D600752B56;
@@ -2377,6 +2385,7 @@
 				84D8B5C91D768B6E00752B56 /* LFH264VideoEncoder.mm in Sources */,
 				843590701DD1FEB600811FC7 /* GPUImageHazeFilter.m in Sources */,
 				8435908E1DD1FEB600811FC7 /* GPUImageLanczosResamplingFilter.m in Sources */,
+				A481F97D250A42B9007065A4 /* GPUImageSunriseFilter.m in Sources */,
 				8435901E1DD1FEB600811FC7 /* GPUImageColorBurnBlendFilter.m in Sources */,
 				843590C61DD1FEB600811FC7 /* GPUImageOutput.m in Sources */,
 				843590E01DD1FEB600811FC7 /* GPUImageRawDataOutput.m in Sources */,
