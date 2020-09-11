@@ -24,7 +24,7 @@
 @interface LFVideoCapture ()
 
 @property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
-@property (nonatomic, strong) GPUImageStretchDistortionFilter *beautyFilter;
+//@property (nonatomic, strong) LFGPUImageBeautyFilter *beautyFilter;
 @property (nonatomic, strong) GPUImageOutput<GPUImageInput> *filter;
 @property (nonatomic, strong) GPUImageCropFilter *cropfilter;
 @property (nonatomic, strong) GPUImageOutput<GPUImageInput> *output;
@@ -196,9 +196,9 @@
 
 - (void)setBeautyLevel:(CGFloat)beautyLevel {
     _beautyLevel = beautyLevel;
-    if (self.beautyFilter) {
+//    if (self.beautyFilter) {
         //        [self.beautyFilter setBeautyLevel:_beautyLevel];
-    }
+//    }
 }
 
 - (CGFloat)beautyLevel {
@@ -207,9 +207,9 @@
 
 - (void)setBrightLevel:(CGFloat)brightLevel {
     _brightLevel = brightLevel;
-    if (self.beautyFilter) {
+//    if (self.beautyFilter) {
         //        [self.beautyFilter setBrightLevel:brightLevel];
-    }
+//    }
 }
 
 - (CGFloat)brightLevel {
@@ -328,10 +328,10 @@
     
     
     self.output = [[LFGPUImageEmptyFilter alloc] init];
-    self.filter = [[GPUImageStretchDistortionFilter alloc] init];
+    self.filter = [[LFGPUImageEmptyFilter alloc] init];
     self.secondOutput = [[LFGPUImageEmptyFilter alloc] init];
     self.secondFilter = [[LFGPUImageEmptyFilter alloc] init];
-    //    self.beautyFilter = (GPUImageStretchDistortionFilter*)self.filter;
+    //    self.beautyFilter = (LFGPUImageBeautyFilter*)self.filter;
     
     ///< 调节镜像
     [self reloadMirror];
@@ -428,7 +428,7 @@
     }
     self.secondOutput = [[LFGPUImageEmptyFilter alloc] init];
     self.secondFilter = [[LFGPUImageEmptyFilter alloc] init];
-    //    self.beautyFilter = (GPUImageStretchDistortionFilter*)self.filter;
+    //    self.beautyFilter = (LFGPUImageBeautyFilter*)self.filter;
     
     ///< 调节镜像
     [self reloadMirror];
