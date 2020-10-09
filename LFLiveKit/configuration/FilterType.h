@@ -10,6 +10,7 @@
 #define FilterType_h
 
 typedef NS_ENUM(NSUInteger, FilterType) {
+    None,
     BeautyFilter,
     HealthyFilter,
     EmeraldFilter,
