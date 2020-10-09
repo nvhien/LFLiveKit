@@ -9,19 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "LFLiveVideoConfiguration.h"
-
-typedef NS_ENUM(NSUInteger, FilterType) {
-    BeautyFilter,
-    HealthyFilter,
-    EmeraldFilter,
-    EvergreenFilter,
-    BrooklynFilter,
-    PixarFilter,
-    RiseFilter,
-    SierraFilter,
-    RommanceFilter,
-    SunriseFilter
-};
+#import "FilterType.h"
 
 @class LFVideoCapture;
 /** LFVideoCapture callback videoData */

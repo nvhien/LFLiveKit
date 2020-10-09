@@ -15,7 +15,7 @@
 #import "LFLiveAudioConfiguration.h"
 #import "LFLiveVideoConfiguration.h"
 #import "LFLiveDebug.h"
-#import "LFVideoCapture.h"
+#import "FilterType.h"
 
 
 

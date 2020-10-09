@@ -681,6 +681,7 @@
 		A4722AD625301DB3000966BF /* GPUImageEvergreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A4722AC625301DB3000966BF /* GPUImageEvergreenFilter.m */; };
 		A481F97B250A4295007065A4 /* GPUImageSunriseFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = A481F97A250A4295007065A4 /* GPUImageSunriseFilter.h */; };
 		A481F97D250A42B9007065A4 /* GPUImageSunriseFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A481F97C250A42B9007065A4 /* GPUImageSunriseFilter.m */; };
+		A4E7CF6625305EF10082A7F6 /* FilterType.h in Headers */ = {isa = PBXBuildFile; fileRef = A4E7CF6525305EF10082A7F6 /* FilterType.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1133,6 +1134,7 @@
 		A4722AC625301DB3000966BF /* GPUImageEvergreenFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageEvergreenFilter.m; sourceTree = "<group>"; };
 		A481F97A250A4295007065A4 /* GPUImageSunriseFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageSunriseFilter.h; sourceTree = "<group>"; };
 		A481F97C250A42B9007065A4 /* GPUImageSunriseFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageSunriseFilter.m; sourceTree = "<group>"; };
+		A4E7CF6525305EF10082A7F6 /* FilterType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterType.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1657,6 +1659,7 @@
 		84D8B59B1D768B6E00752B56 /* configuration */ = {
 			isa = PBXGroup;
 			children = (
+				A4E7CF6525305EF10082A7F6 /* FilterType.h */,
 				84D8B59C1D768B6E00752B56 /* LFLiveAudioConfiguration.h */,
 				84D8B59D1D768B6E00752B56 /* LFLiveAudioConfiguration.m */,
 				84D8B59E1D768B6E00752B56 /* LFLiveVideoConfiguration.h */,
@@ -1886,6 +1889,7 @@
 				843591481DD1FEB600811FC7 /* GPUImagePicture+TextureSubimage.h in Headers */,
 				8435906B1DD1FEB600811FC7 /* GPUImageHardLightBlendFilter.h in Headers */,
 				84358FFF1DD1FEB600811FC7 /* GPUImageAlphaBlendFilter.h in Headers */,
+				A4E7CF6625305EF10082A7F6 /* FilterType.h in Headers */,
 				8435913B1DD1FEB600811FC7 /* GPUImageWeakPixelInclusionFilter.h in Headers */,
 				843590451DD1FEB600811FC7 /* GPUImageEmbossFilter.h in Headers */,
 				A481F97B250A4295007065A4 /* GPUImageSunriseFilter.h in Headers */,
