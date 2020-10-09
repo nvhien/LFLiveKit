@@ -10,6 +10,19 @@
 #import <AVFoundation/AVFoundation.h>
 #import "LFLiveVideoConfiguration.h"
 
+typedef NS_ENUM(NSUInteger, FilterType) {
+    BeautyFilter,
+    HealthyFilter,
+    EmeraldFilter,
+    EvergreenFilter,
+    BrooklynFilter,
+    PixarFilter,
+    RiseFilter,
+    SierraFilter,
+    RommanceFilter,
+    SunriseFilter
+};
+
 @class LFVideoCapture;
 /** LFVideoCapture callback videoData */
 @protocol LFVideoCaptureDelegate <NSObject>
@@ -89,6 +102,6 @@
 - (void)reloadFilter;
 
 /** The apply filter stream .*/
-- (void)applyFilter:(NSInteger)type;
+- (void)applyFilter:(FilterType)type;
 
 @end

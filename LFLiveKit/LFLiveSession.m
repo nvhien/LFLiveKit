@@ -7,7 +7,6 @@
 //
 
 #import "LFLiveSession.h"
-#import "LFVideoCapture.h"
 #import "LFAudioCapture.h"
 #import "LFHardwareVideoEncoder.h"
 #import "LFHardwareAudioEncoder.h"
@@ -15,7 +14,6 @@
 #import "LFStreamRTMPSocket.h"
 #import "LFLiveStreamInfo.h"
 #import "LFGPUImageBeautyFilter.h"
-#import "GPUImageSunriseFilter.h"
 #import "LFH264VideoEncoder.h"
 
 
@@ -261,7 +259,7 @@
     [self didChangeValueForKey:@"outputImageOrientation"];
 }
 
-- (void)reloadFilter:(NSInteger)type {
+- (void)reloadFilter:(FilterType)type {
     [self willChangeValueForKey:@"applyFilter"];
     [self.videoCaptureSource applyFilter:type];
     [self didChangeValueForKey:@"applyFilter"];

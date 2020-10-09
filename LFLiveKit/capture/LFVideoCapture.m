@@ -9,7 +9,15 @@
 #import "LFVideoCapture.h"
 #import "LFGPUImageBeautyFilter.h"
 #import "GPUImageSunriseFilter.h"
-#import "GPUImageStretchDistortionFilter.h"
+#import "GPUImageSunriseFilter.h"
+#import "GPUImageBrooklynFilter.h"
+#import "GPUImageEmeraldFilter.h"
+#import "GPUImageEvergreenFilter.h"
+#import "GPUImageHealthyFilter.h"
+#import "GPUImagePixarFilter.h"
+#import "GPUImageRiseFilter.h"
+#import "GPUImageRommanceFilter.h"
+#import "GPUImageSierraFilter.h"
 #import "LFGPUImageEmptyFilter.h"
 
 #if __has_include(<GPUImage/GPUImage.h>)
@@ -386,7 +394,7 @@
     
 }
 
-- (void)applyFilter:(NSInteger)type {
+- (void)applyFilter:(FilterType)type {
     [self.filter removeAllTargets];
     [self.blendFilter removeAllTargets];
     [self.uiElementInput removeAllTargets];
@@ -400,25 +408,34 @@
     
     self.output = [[LFGPUImageEmptyFilter alloc] init];
     switch(type) {
-        case 1:
-            self.filter = [[GPUImageBulgeDistortionFilter alloc] init];
-            break;
-        case 2:
-            self.filter = [[GPUImageBoxBlurFilter alloc] init];
-            break;
-        case 3:
+        case BeautyFilter:
             self.filter = [[LFGPUImageBeautyFilter alloc] init];
             break;
-        case 4:
-            self.filter = [[GPUImageBulgeDistortionFilter alloc] init];
+        case HealthyFilter:
+            self.filter = [[GPUImageHealthyFilter alloc] init];
             break;
-        case 5:
-            self.filter = [[GPUImageZoomBlurFilter alloc] init];
+        case EmeraldFilter:
+            self.filter = [[GPUImageEmeraldFilter alloc] init];
             break;
-        case 6:
-            self.filter = [[GPUImageGaussianBlurFilter alloc] init];
+        case EvergreenFilter:
+            self.filter = [[GPUImageEvergreenFilter alloc] init];
             break;
-        case 7:
+        case BrooklynFilter:
+            self.filter = [[GPUImageBrooklynFilter alloc] init];
+            break;
+        case PixarFilter:
+            self.filter = [[GPUImagePixarFilter alloc] init];
+            break;
+        case RiseFilter:
+            self.filter = [[GPUImageRiseFilter alloc] init];
+            break;
+        case SierraFilter:
+            self.filter = [[GPUImageSierraFilter alloc] init];
+            break;
+        case RommanceFilter:
+            self.filter = [[GPUImageRommanceFilter alloc] init];
+            break;
+        case SunriseFilter:
             self.filter = [[GPUImageSunriseFilter alloc] init];
             break;
         default:

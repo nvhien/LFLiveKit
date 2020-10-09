@@ -15,6 +15,7 @@
 #import "LFLiveAudioConfiguration.h"
 #import "LFLiveVideoConfiguration.h"
 #import "LFLiveDebug.h"
+#import "LFVideoCapture.h"
 
 
 
@@ -166,7 +167,7 @@ typedef NS_ENUM(NSInteger,LFLiveCaptureTypeMask) {
 
 - (void)pushAudio:(nullable NSData*)audioData;
 
-- (void)reloadFilter:(NSInteger)type;
+- (void)reloadFilter:(FilterType)type;
 
 @end
 
