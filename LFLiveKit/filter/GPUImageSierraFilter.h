@@ -1,11 +1,12 @@
-#if __has_include(<GPUImage/GPUImageFramework.h>)
-#import <GPUImage/GPUImageFramework.h>
-#else
-#import "GPUImage.h"
-#endif
+#import "GPUImageFourInputFilter.h"
 
-@interface GPUImageSierraFilter : GPUImageFilter
+@interface GPUImageSierraFilter : GPUImageFourInputFilter
 {
+    GLint strengthUniform;
 }
+
+/** Strength of the color applied. Default 0. Values between -.3 and .3 are best
+ */
+@property(readwrite, nonatomic) CGFloat strength;
 
 @end
