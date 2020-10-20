@@ -289,7 +289,7 @@ NSString *const kGPUImagePixarFragmentShaderString = SHADER_STRING
     if (!(self = [super initWithFragmentShaderFromString:kGPUImagePixarFragmentShaderString])) {
         return nil;
     }
-
+    [self setFloat:1.0 forUniformName:@"strength"];
     return self;
 }
 

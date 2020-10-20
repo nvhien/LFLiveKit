@@ -18,7 +18,7 @@
 #endif
 
     NSAssert(image1 ,
-             @"To use GPUImageSoftEleganceFilter you need to add pixar_curves.png from GPUImage/framework/Resources to your application bundle.");
+             @"To use GPUImagePixarFilter you need to add pixar_curves.png from GPUImage/framework/Resources to your application bundle.");
     
     lookupImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
     GPUImagePixarFilter *lookupFilter1 = [[GPUImagePixarFilter alloc] init];

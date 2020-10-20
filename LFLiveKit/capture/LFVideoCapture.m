@@ -22,6 +22,7 @@
 #import "LFGPUImageSierraFilter.h"
 #import "LFGPUImageRiseFilter.h"
 #import "LFGPUImagePixarFilter.h"
+#import "LFGPUImageBrooklynFilter.h"
 
 #if __has_include(<GPUImage/GPUImage.h>)
 #import <GPUImage/GPUImage.h>
@@ -424,7 +425,7 @@
             self.filter = [[GPUImageEvergreenFilter alloc] init];
             break;
         case BrooklynFilter:
-            self.filter = [[GPUImageBrooklynFilter alloc] init];
+            self.filter = [[LFGPUImageBrooklynFilter alloc] init];
             break;
         case PixarFilter:
             self.filter = [[LFGPUImagePixarFilter alloc] init];
