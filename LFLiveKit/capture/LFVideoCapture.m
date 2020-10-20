@@ -19,6 +19,9 @@
 #import "GPUImageRommanceFilter.h"
 #import "GPUImageSierraFilter.h"
 #import "LFGPUImageEmptyFilter.h"
+#import "LFGPUImageSierraFilter.h"
+#import "LFGPUImageRiseFilter.h"
+#import "LFGPUImagePixarFilter.h"
 
 #if __has_include(<GPUImage/GPUImage.h>)
 #import <GPUImage/GPUImage.h>
@@ -424,13 +427,13 @@
             self.filter = [[GPUImageBrooklynFilter alloc] init];
             break;
         case PixarFilter:
-            self.filter = [[GPUImagePixarFilter alloc] init];
+            self.filter = [[LFGPUImagePixarFilter alloc] init];
             break;
         case RiseFilter:
-            self.filter = [[GPUImageRiseFilter alloc] init];
+            self.filter = [[LFGPUImageRiseFilter alloc] init];
             break;
         case SierraFilter:
-            self.filter = [[GPUImageSierraFilter alloc] init];
+            self.filter = [[LFGPUImageSierraFilter alloc] init];
             break;
         case RommanceFilter:
             self.filter = [[GPUImageRommanceFilter alloc] init];

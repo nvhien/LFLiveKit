@@ -1,8 +1,8 @@
-#import "LFGPUImageSierraFilter.h"
+#import "LFGPUImageRiseFilter.h"
 #import "GPUImagePicture.h"
 #import "GPUImageRiseFilter.h"
 
-@implementation LFGPUImageSierraFilter
+@implementation LFGPUImageRiseFilter
 
 - (id)init;
 {

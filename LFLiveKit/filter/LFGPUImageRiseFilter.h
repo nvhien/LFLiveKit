@@ -2,7 +2,7 @@
 
 @class GPUImagePicture;
 
-@interface LFGPUImageSierraFilter : GPUImageFilterGroup {
+@interface LFGPUImageRiseFilter : GPUImageFilterGroup {
     GPUImagePicture *lookupImageSource1;
     GPUImagePicture *lookupImageSource2;
     GPUImagePicture *lookupImageSource3;
