@@ -1,6 +1,7 @@
 #import "LFGPUImageSierraFilter.h"
 #import "GPUImagePicture.h"
 #import "GPUImageSierraFilter.h"
+#import "GPUImageLookupFilter.h"
 
 @implementation LFGPUImageSierraFilter
 
@@ -35,12 +36,12 @@
     
     [lookupImageSource2 addTarget:lookupFilter1 atTextureLocation:2];
     [lookupImageSource2 processImage];
-    
+
     [lookupImageSource3 addTarget:lookupFilter1 atTextureLocation:3];
     [lookupImageSource3 processImage];
     
     self.initialFilters = [NSArray arrayWithObjects:lookupFilter1, nil];
-//    self.terminalFilter = lookupFilter2;
+    self.terminalFilter = lookupFilter1;
     
     return self;
 }

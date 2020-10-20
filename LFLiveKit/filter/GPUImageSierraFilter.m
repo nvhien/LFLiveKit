@@ -1,46 +1,50 @@
 #import "GPUImageSierraFilter.h"
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-NSString *const kGPUImageSierraFragmentShaderString = SHADER_STRING
-                                                       (
-                                                        varying mediump vec2 textureCoordinate;
+NSString *const kGPUImageSierraFragmentShaderString = SHADER_STRING (
+                                                                     precision highp float;
 
-                                                        uniform samplerExternalOES inputImageTexture;
-                                                        uniform sampler2D inputImageTexture2; //blowout;
-                                                        uniform sampler2D inputImageTexture3; //overlay;
-                                                        uniform sampler2D inputImageTexture4; //map
-                                                        uniform float strength;
+                                                                     varying highp vec2 textureCoordinate;
 
-                                                        void main()
-                                                        {
-                                                            vec4 originColor = texture2D(inputImageTexture, textureCoordinate);
-                                                            vec4 texel = texture2D(inputImageTexture, textureCoordinate);
-                                                            vec3 bbTexel = texture2D(inputImageTexture2, textureCoordinate).rgb;
+                                                                     uniform sampler2D inputImageTexture;
+                                                                     uniform sampler2D inputImageTexture2; //blowout;
+                                                                     uniform sampler2D inputImageTexture3; //overlay;
+                                                                     uniform sampler2D inputImageTexture4; //map
 
-                                                            texel.r = texture2D(inputImageTexture3, vec2(bbTexel.r, texel.r)).r;
-                                                            texel.g = texture2D(inputImageTexture3, vec2(bbTexel.g, texel.g)).g;
-                                                            texel.b = texture2D(inputImageTexture3, vec2(bbTexel.b, texel.b)).b;
+                                                                     uniform float strength;
 
-                                                            vec4 mapped;
-                                                            mapped.r = texture2D(inputImageTexture4, vec2(texel.r, .16666)).r;
-                                                            mapped.g = texture2D(inputImageTexture4, vec2(texel.g, .5)).g;
-                                                            mapped.b = texture2D(inputImageTexture4, vec2(texel.b, .83333)).b;
-                                                            mapped.a = 1.0;
+                                                                     void main()
+                                                                     {
+                                                                         vec4 originColor = texture2D(inputImageTexture, textureCoordinate);
+                                                                         vec4 texel = texture2D(inputImageTexture, textureCoordinate);
+                                                                         vec3 bbTexel = texture2D(inputImageTexture2, textureCoordinate).rgb;
 
-                                                            mapped.rgb = mix(originColor.rgb, mapped.rgb, strength);
-                                                            gl_FragColor = mapped;
-                                                        }
+                                                                         texel.r = texture2D(inputImageTexture3, vec2(bbTexel.r, texel.r)).r;
+                                                                         texel.g = texture2D(inputImageTexture3, vec2(bbTexel.g, texel.g)).g;
+                                                                         texel.b = texture2D(inputImageTexture3, vec2(bbTexel.b, texel.b)).b;
 
-                                                       );
+                                                                         vec4 mapped;
+                                                                         mapped.r = texture2D(inputImageTexture4, vec2(texel.r, .16666)).r;
+                                                                         mapped.g = texture2D(inputImageTexture4, vec2(texel.g, .5)).g;
+                                                                         mapped.b = texture2D(inputImageTexture4, vec2(texel.b, .83333)).b;
+                                                                         mapped.a = 1.0;
+
+                                                                         mapped.rgb = mix(originColor.rgb, mapped.rgb, strength);
+                                                                         gl_FragColor = mapped;
+                                                                     }
+);
 #else
 NSString *const kGPUImageSierraFragmentShaderString = SHADER_STRING
                                                       (
+                                                       precision mediump float;
+
                                                        varying mediump vec2 textureCoordinate;
 
                                                        uniform samplerExternalOES inputImageTexture;
                                                        uniform sampler2D inputImageTexture2; //blowout;
                                                        uniform sampler2D inputImageTexture3; //overlay;
                                                        uniform sampler2D inputImageTexture4; //map
+
                                                        uniform float strength;
 
                                                        void main()
@@ -76,9 +80,7 @@ NSString *const kGPUImageSierraFragmentShaderString = SHADER_STRING
         return nil;
     }
 
-    strengthUniform = [filterProgram uniformIndex:@"strength"];
-
-    self.strength = 1.0;
+    [self setFloat:1.0 forUniformName:@"strength"];
     
     return self;
 }
