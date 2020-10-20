@@ -690,6 +690,10 @@
 		BDA7805E253ECFFA00C3E62C /* LFGPUImageRiseFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7805B253ECFFA00C3E62C /* LFGPUImageRiseFilter.m */; };
 		BDA7805F253ECFFA00C3E62C /* LFGPUImageRiseFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA7805C253ECFFA00C3E62C /* LFGPUImageRiseFilter.h */; };
 		BDA78060253ECFFA00C3E62C /* LFGPUImageRiseFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA7805C253ECFFA00C3E62C /* LFGPUImageRiseFilter.h */; };
+		BDE7CF1C253ED5A100CDF137 /* LFGPUImagePixarFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE7CF1A253ED5A100CDF137 /* LFGPUImagePixarFilter.h */; };
+		BDE7CF1D253ED5A100CDF137 /* LFGPUImagePixarFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE7CF1A253ED5A100CDF137 /* LFGPUImagePixarFilter.h */; };
+		BDE7CF1E253ED5A100CDF137 /* LFGPUImagePixarFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7CF1B253ED5A100CDF137 /* LFGPUImagePixarFilter.m */; };
+		BDE7CF1F253ED5A100CDF137 /* LFGPUImagePixarFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7CF1B253ED5A100CDF137 /* LFGPUImagePixarFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1147,6 +1151,8 @@
 		BDA77FED253D8C2C00C3E62C /* LFGPUImageSierraFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGPUImageSierraFilter.m; sourceTree = "<group>"; };
 		BDA7805B253ECFFA00C3E62C /* LFGPUImageRiseFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGPUImageRiseFilter.m; sourceTree = "<group>"; };
 		BDA7805C253ECFFA00C3E62C /* LFGPUImageRiseFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGPUImageRiseFilter.h; sourceTree = "<group>"; };
+		BDE7CF1A253ED5A100CDF137 /* LFGPUImagePixarFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGPUImagePixarFilter.h; sourceTree = "<group>"; };
+		BDE7CF1B253ED5A100CDF137 /* LFGPUImagePixarFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGPUImagePixarFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1701,6 +1707,8 @@
 				A4722AC425301DB2000966BF /* GPUImageSierraFilter.m */,
 				A481F97A250A4295007065A4 /* GPUImageSunriseFilter.h */,
 				A481F97C250A42B9007065A4 /* GPUImageSunriseFilter.m */,
+				BDE7CF1A253ED5A100CDF137 /* LFGPUImagePixarFilter.h */,
+				BDE7CF1B253ED5A100CDF137 /* LFGPUImagePixarFilter.m */,
 				BDA77FEC253D8C2B00C3E62C /* LFGPUImageSierraFilter.h */,
 				BDA77FED253D8C2C00C3E62C /* LFGPUImageSierraFilter.m */,
 				BDA7805C253ECFFA00C3E62C /* LFGPUImageRiseFilter.h */,
@@ -1785,6 +1793,7 @@
 				8495F6891DB8F1EE00542124 /* LFStreamingBuffer.h in Headers */,
 				8495F68A1DB8F1EE00542124 /* LFStreamRTMPSocket.h in Headers */,
 				8495F68B1DB8F1EE00542124 /* LFStreamSocket.h in Headers */,
+				BDE7CF1D253ED5A100CDF137 /* LFGPUImagePixarFilter.h in Headers */,
 				8495F68C1DB8F1EE00542124 /* NSMutableArray+LFAdd.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1880,6 +1889,7 @@
 				843590EF1DD1FEB600811FC7 /* GPUImageScreenBlendFilter.h in Headers */,
 				84D8B5BB1D768B6E00752B56 /* LFAudioCapture.h in Headers */,
 				8435907F1DD1FEB600811FC7 /* GPUImageHSBFilter.h in Headers */,
+				BDE7CF1C253ED5A100CDF137 /* LFGPUImagePixarFilter.h in Headers */,
 				843590E31DD1FEB600811FC7 /* GPUImageRGBDilationFilter.h in Headers */,
 				8435911D1DD1FEB600811FC7 /* GPUImageThresholdedNonMaximumSuppressionFilter.h in Headers */,
 				843590011DD1FEB600811FC7 /* GPUImageAmatorkaFilter.h in Headers */,
@@ -2280,6 +2290,7 @@
 				843591E91DD20A7F00811FC7 /* GPUImageScreenBlendFilter.m in Sources */,
 				843591EA1DD20A7F00811FC7 /* GPUImageSepiaFilter.m in Sources */,
 				843591EB1DD20A7F00811FC7 /* GPUImageSharpenFilter.m in Sources */,
+				BDE7CF1F253ED5A100CDF137 /* LFGPUImagePixarFilter.m in Sources */,
 				843591EC1DD20A7F00811FC7 /* GPUImageShiTomasiFeatureDetectionFilter.m in Sources */,
 				843591ED1DD20A7F00811FC7 /* GPUImageSingleComponentGaussianBlurFilter.m in Sources */,
 				843591EE1DD20A7F00811FC7 /* GPUImageSketchFilter.m in Sources */,
@@ -2560,6 +2571,7 @@
 				843590021DD1FEB600811FC7 /* GPUImageAmatorkaFilter.m in Sources */,
 				8435908A1DD1FEB600811FC7 /* GPUImageKuwaharaFilter.m in Sources */,
 				843590F01DD1FEB600811FC7 /* GPUImageScreenBlendFilter.m in Sources */,
+				BDE7CF1E253ED5A100CDF137 /* LFGPUImagePixarFilter.m in Sources */,
 				8435902E1DD1FEB600811FC7 /* GPUImageColourFASTSamplingOperation.m in Sources */,
 				A4722AC825301DB3000966BF /* GPUImageEmeraldFilter.m in Sources */,
 				843590B01DD1FEB600811FC7 /* GPUImageMosaicFilter.m in Sources */,

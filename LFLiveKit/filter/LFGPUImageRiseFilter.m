@@ -1,7 +1,6 @@
 #import "LFGPUImageSierraFilter.h"
 #import "GPUImagePicture.h"
-#import "GPUImageSierraFilter.h"
-#import "GPUImageLookupFilter.h"
+#import "GPUImageRiseFilter.h"
 
 @implementation LFGPUImageSierraFilter
 
@@ -23,12 +22,12 @@
 #endif
 
     NSAssert(image1 && image2,
-             @"To use GPUImageSoftEleganceFilter you need to add sierravignette.png, overlaymap.png and sierramap.png from GPUImage/framework/Resources to your application bundle.");
+             @"To use GPUImageRiseFilter you need to add sierravignette.png, overlaymap.png and sierramap.png from GPUImage/framework/Resources to your application bundle.");
     
     lookupImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
     lookupImageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
     lookupImageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
-    GPUImageSierraFilter *lookupFilter1 = [[GPUImageSierraFilter alloc] init];
+    GPUImageRiseFilter *lookupFilter1 = [[GPUImageRiseFilter alloc] init];
     [self addFilter:lookupFilter1];
 
     [lookupImageSource1 addTarget:lookupFilter1 atTextureLocation:1];
