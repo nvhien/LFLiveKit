@@ -60,6 +60,7 @@ NSString *const kGPUImageBrannanFragmentShaderString = SHADER_STRING
                                                             texel.b = texture2D(inputImageTexture4, lookup).b;
 
 
+                                                           /*
                                                             lookup.x = dot(texel, luma);
                                                             texel = mix(texture2D(inputImageTexture5, lookup).rgb, texel, .5);
 
@@ -69,6 +70,7 @@ NSString *const kGPUImageBrannanFragmentShaderString = SHADER_STRING
                                                             texel.g = texture2D(inputImageTexture6, lookup).g;
                                                             lookup.x = texel.b;
                                                             texel.b = texture2D(inputImageTexture6, lookup).b;
+                                                            */
 
                                                             texel = mix(originColor.rgb, texel.rgb, strength);
 
@@ -136,6 +138,7 @@ NSString *const kGPUImageBrannanFragmentShaderString = SHADER_STRING
                                                            texel.b = texture2D(inputImageTexture4, lookup).b;
 
 
+                                                          /*
                                                            lookup.x = dot(texel, luma);
                                                            texel = mix(texture2D(inputImageTexture5, lookup).rgb, texel, .5);
 
@@ -145,6 +148,7 @@ NSString *const kGPUImageBrannanFragmentShaderString = SHADER_STRING
                                                            texel.g = texture2D(inputImageTexture6, lookup).g;
                                                            lookup.x = texel.b;
                                                            texel.b = texture2D(inputImageTexture6, lookup).b;
+                                                           */
 
                                                            texel = mix(originColor.rgb, texel.rgb, strength);
 

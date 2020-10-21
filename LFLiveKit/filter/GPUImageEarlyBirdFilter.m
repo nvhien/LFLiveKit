@@ -86,6 +86,7 @@ NSString *const kGPUImageEarlyBirdFragmentShaderString = SHADER_STRING
                                                             float value = smoothstep(0.0, 1.25, pow(d, 1.35)/1.65);
 
                                                             //---
+                                                           /*
                                                             lookup.x = texel.r;
                                                             sampled.r = texture2D(inputImageTexture5, lookup).r;
                                                             lookup.x = texel.g;
@@ -100,6 +101,7 @@ NSString *const kGPUImageEarlyBirdFragmentShaderString = SHADER_STRING
                                                             texel.g = texture2D(inputImageTexture6, lookup).g;
                                                             lookup.x = texel.b;
                                                             texel.b = texture2D(inputImageTexture6, lookup).b;
+                                                            */
 
                                                             gl_FragColor = vec4(texel, 1.0);
                                                         }
@@ -191,6 +193,7 @@ NSString *const kGPUImageEarlyBirdFragmentShaderString = SHADER_STRING
                                                            float value = smoothstep(0.0, 1.25, pow(d, 1.35)/1.65);
 
                                                            //---
+                                                          /*
                                                            lookup.x = texel.r;
                                                            sampled.r = texture2D(inputImageTexture5, lookup).r;
                                                            lookup.x = texel.g;
@@ -205,6 +208,7 @@ NSString *const kGPUImageEarlyBirdFragmentShaderString = SHADER_STRING
                                                            texel.g = texture2D(inputImageTexture6, lookup).g;
                                                            lookup.x = texel.b;
                                                            texel.b = texture2D(inputImageTexture6, lookup).b;
+                                                           */
 
                                                            gl_FragColor = vec4(texel, 1.0);
                                                        }

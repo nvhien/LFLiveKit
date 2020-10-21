@@ -1,10 +1,6 @@
-#if __has_include(<GPUImage/GPUImageFramework.h>)
-#import <GPUImage/GPUImageFramework.h>
-#else
-#import "GPUImage.h"
-#endif
+#import "GPUImageFourInputFilter.h"
 
-@interface GPUImageBrannanFilter : GPUImageFilter
+@interface GPUImageBrannanFilter : GPUImageFourInputFilter
 {
 }
 
