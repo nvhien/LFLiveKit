@@ -20,15 +20,15 @@
     NSAssert(image1 ,
              @"To use GPUImagePixarFilter you need to add pixar_curves.png from GPUImage/framework/Resources to your application bundle.");
     
-    lookupImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
-    GPUImagePixarFilter *lookupFilter1 = [[GPUImagePixarFilter alloc] init];
-    [self addFilter:lookupFilter1];
+    pixarImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    GPUImagePixarFilter *pixarFilter = [[GPUImagePixarFilter alloc] init];
+    [self addFilter:pixarFilter];
 
-    [lookupImageSource1 addTarget:lookupFilter1 atTextureLocation:1];
-    [lookupImageSource1 processImage];
+    [pixarImageSource1 addTarget:pixarFilter atTextureLocation:1];
+    [pixarImageSource1 processImage];
     
-    self.initialFilters = [NSArray arrayWithObjects:lookupFilter1, nil];
-    self.terminalFilter = lookupFilter1;
+    self.initialFilters = [NSArray arrayWithObjects:pixarFilter, nil];
+    self.terminalFilter = pixarFilter;
     
     return self;
 }

@@ -23,6 +23,10 @@
 #import "LFGPUImageRiseFilter.h"
 #import "LFGPUImagePixarFilter.h"
 #import "LFGPUImageBrooklynFilter.h"
+#import "LFGPUImageAmaroFilter.h"
+#import "LFGPUImageFreudFilter.h"
+#import "LFGPUImageBrannanFilter.h"
+#import "LFGPUImageEarlyBirdFilter.h"
 
 #if __has_include(<GPUImage/GPUImage.h>)
 #import <GPUImage/GPUImage.h>
@@ -415,15 +419,6 @@
         case BeautyFilter:
             self.filter = [[LFGPUImageBeautyFilter alloc] init];
             break;
-        case HealthyFilter:
-            self.filter = [[GPUImageHealthyFilter alloc] init];
-            break;
-        case EmeraldFilter:
-            self.filter = [[GPUImageEmeraldFilter alloc] init];
-            break;
-        case EvergreenFilter:
-            self.filter = [[GPUImageEvergreenFilter alloc] init];
-            break;
         case BrooklynFilter:
             self.filter = [[LFGPUImageBrooklynFilter alloc] init];
             break;
@@ -436,11 +431,18 @@
         case SierraFilter:
             self.filter = [[LFGPUImageSierraFilter alloc] init];
             break;
-        case RommanceFilter:
-            self.filter = [[GPUImageRommanceFilter alloc] init];
+        case AmaroFilter:
+            self.filter = [[LFGPUImageAmaroFilter alloc] init];
             break;
-        case SunriseFilter:
-            self.filter = [[GPUImageSunriseFilter alloc] init];
+        case BrannanFilter:
+            self.filter = [[LFGPUImageBrannanFilter alloc] init];
+            break;
+        case EarlyBirdFilter:
+            self.filter = [[LFGPUImageEarlyBirdFilter alloc] init];
+            break;
+        case FreudFilter:
+            self.filter = [[LFGPUImageFreudFilter alloc] init];
+            break;
             break;
         default:
             NSLog(@"Default");

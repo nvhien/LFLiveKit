@@ -24,23 +24,23 @@
     NSAssert(image1 && image2,
              @"To use GPUImageRiseFilter you need to add sierravignette.png, overlaymap.png and sierramap.png from GPUImage/framework/Resources to your application bundle.");
     
-    lookupImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
-    lookupImageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
-    lookupImageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
-    GPUImageRiseFilter *lookupFilter1 = [[GPUImageRiseFilter alloc] init];
-    [self addFilter:lookupFilter1];
+    riseImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    riseImageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    riseImageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
+    GPUImageRiseFilter *riseFilter = [[GPUImageRiseFilter alloc] init];
+    [self addFilter:riseFilter];
 
-    [lookupImageSource1 addTarget:lookupFilter1 atTextureLocation:1];
-    [lookupImageSource1 processImage];
+    [riseImageSource1 addTarget:riseFilter atTextureLocation:1];
+    [riseImageSource1 processImage];
     
-    [lookupImageSource2 addTarget:lookupFilter1 atTextureLocation:2];
-    [lookupImageSource2 processImage];
+    [riseImageSource2 addTarget:riseFilter atTextureLocation:2];
+    [riseImageSource2 processImage];
 
-    [lookupImageSource3 addTarget:lookupFilter1 atTextureLocation:3];
-    [lookupImageSource3 processImage];
+    [riseImageSource3 addTarget:riseFilter atTextureLocation:3];
+    [riseImageSource3 processImage];
     
-    self.initialFilters = [NSArray arrayWithObjects:lookupFilter1, nil];
-    self.terminalFilter = lookupFilter1;
+    self.initialFilters = [NSArray arrayWithObjects:riseFilter, nil];
+    self.terminalFilter = riseFilter;
     
     return self;
 }

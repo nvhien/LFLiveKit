@@ -20,7 +20,11 @@ typedef NS_ENUM(NSUInteger, FilterType) {
     RiseFilter,
     SierraFilter,
     RommanceFilter,
-    SunriseFilter
+    SunriseFilter,
+    AmaroFilter,
+    EarlyBirdFilter,
+    BrannanFilter,
+    FreudFilter
 };
 
 #endif /* FilterType_h */

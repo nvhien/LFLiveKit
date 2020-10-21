@@ -3,9 +3,9 @@
 @class GPUImagePicture;
 
 @interface LFGPUImageBrooklynFilter : GPUImageFilterGroup {
-    GPUImagePicture *lookupImageSource1;
-    GPUImagePicture *lookupImageSource2;
-    GPUImagePicture *lookupImageSource3;
+    GPUImagePicture *brooklynImageSource1;
+    GPUImagePicture *brooklynImageSource2;
+    GPUImagePicture *brooklynImageSource3;
 }
 
 @end

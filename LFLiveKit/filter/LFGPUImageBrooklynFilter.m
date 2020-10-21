@@ -24,23 +24,23 @@
     NSAssert(image1 && image2,
              @"To use GPUImageBrooklynFilter you need to add brooklynCurves1.png, filter_map_first.png and brooklynCurves2.png from GPUImage/framework/Resources to your application bundle.");
     
-    lookupImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
-    lookupImageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
-    lookupImageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
-    GPUImageBrooklynFilter *lookupFilter1 = [[GPUImageBrooklynFilter alloc] init];
-    [self addFilter:lookupFilter1];
+    brooklynImageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    brooklynImageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    brooklynImageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
+    GPUImageBrooklynFilter *brooklynFilter = [[GPUImageBrooklynFilter alloc] init];
+    [self addFilter:brooklynFilter];
 
-    [lookupImageSource1 addTarget:lookupFilter1 atTextureLocation:1];
-    [lookupImageSource1 processImage];
+    [brooklynImageSource1 addTarget:brooklynFilter atTextureLocation:1];
+    [brooklynImageSource1 processImage];
     
-    [lookupImageSource2 addTarget:lookupFilter1 atTextureLocation:2];
-    [lookupImageSource2 processImage];
+    [brooklynImageSource2 addTarget:brooklynFilter atTextureLocation:2];
+    [brooklynImageSource2 processImage];
 
-    [lookupImageSource3 addTarget:lookupFilter1 atTextureLocation:3];
-    [lookupImageSource3 processImage];
+    [brooklynImageSource3 addTarget:brooklynFilter atTextureLocation:3];
+    [brooklynImageSource3 processImage];
     
-    self.initialFilters = [NSArray arrayWithObjects:lookupFilter1, nil];
-    self.terminalFilter = lookupFilter1;
+    self.initialFilters = [NSArray arrayWithObjects:brooklynFilter, nil];
+    self.terminalFilter = brooklynFilter;
     
     return self;
 }

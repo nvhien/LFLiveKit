@@ -3,9 +3,9 @@
 @class GPUImagePicture;
 
 @interface LFGPUImageSierraFilter : GPUImageFilterGroup {
-    GPUImagePicture *lookupImageSource1;
-    GPUImagePicture *lookupImageSource2;
-    GPUImagePicture *lookupImageSource3;
+    GPUImagePicture *sierraImageSource1;
+    GPUImagePicture *sierraImageSource2;
+    GPUImagePicture *sierraImageSource3;
 }
 
 @end
