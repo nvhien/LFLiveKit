@@ -169,5 +169,7 @@ typedef NS_ENUM(NSInteger,LFLiveCaptureTypeMask) {
 
 - (void)reloadFilter:(FilterType)type;
 
+- (void)refreshVideoSource;
+
 @end
 

@@ -266,6 +266,11 @@
     [self didChangeValueForKey:@"applyFilter"];
 }
 
+- (void)refreshVideoSource {
+    self.videoCaptureSource = nil;
+    self.audioCaptureSource = nil;
+}
+
 - (AVCaptureDevicePosition)captureDevicePosition {
     return self.videoCaptureSource.captureDevicePosition;
 }
