@@ -212,9 +212,11 @@
 
 - (void)setBeautyLevel:(CGFloat)beautyLevel {
     _beautyLevel = beautyLevel;
+    /*
     if (self.beautyFilter) {
         [self.beautyFilter setBeautyLevel:_beautyLevel];
     }
+     */
 }
 
 - (CGFloat)beautyLevel {
@@ -223,9 +225,11 @@
 
 - (void)setBrightLevel:(CGFloat)brightLevel {
     _brightLevel = brightLevel;
+    /*
     if (self.beautyFilter) {
         [self.beautyFilter setBrightLevel:brightLevel];
     }
+     */
 }
 
 - (CGFloat)brightLevel {
